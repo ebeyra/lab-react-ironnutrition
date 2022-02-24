@@ -6,6 +6,7 @@ const AddFoodForm = (props) => {
   const [image, setImage] = React.useState('');
   const [calories, setCalories] = React.useState('');
   const [servings, setServings] = React.useState('');
+  const [showForm, setShowForm] = React.useState(false);
 
   const addFood = (e) => {
     e.preventDefault();
@@ -21,39 +22,45 @@ const AddFoodForm = (props) => {
 
   return (
     <div>
-      <form onSubmit={addFood}>
-        <Divider>Add Food Entry</Divider>
+      {showForm && (
+        <form onSubmit={addFood}>
+          <Divider>Add Food Entry</Divider>
 
-        <label>Name</label>
-        <Input
-          value={name}
-          type="text"
-          onChange={(e) => setName(e.target.value)}
-        />
+          <label>Name</label>
+          <Input
+            value={name}
+            type="text"
+            onChange={(e) => setName(e.target.value)}
+          />
 
-        <label>Image</label>
-        <Input
-          value={image}
-          type="text"
-          onChange={(e) => setImage(e.target.value)}
-        />
+          <label>Image</label>
+          <Input
+            value={image}
+            type="text"
+            onChange={(e) => setImage(e.target.value)}
+          />
 
-        <label>Calories</label>
-        <Input
-          value={calories}
-          type="text"
-          onChange={(e) => setCalories(e.target.value)}
-        />
+          <label>Calories</label>
+          <Input
+            value={calories}
+            type="text"
+            onChange={(e) => setCalories(e.target.value)}
+          />
 
-        <label>Servings</label>
-        <Input
-          value={servings}
-          type="text"
-          onChange={(e) => setServings(e.target.value)}
-        />
+          <label>Servings</label>
+          <Input
+            value={servings}
+            type="text"
+            onChange={(e) => setServings(e.target.value)}
+          />
 
-        <button type="submit">Create</button>
-      </form>
+          <button type="submit">Create</button>
+        </form>
+      )}
+
+      <button onClick={() => setShowForm(!showForm)}>
+        {showForm ? 'Hide Form' : 'Show Form'}
+      </button>
     </div>
   );
 };

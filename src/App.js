@@ -18,7 +18,7 @@ function App() {
   });
 
   return (
-    <div className="App">
+    <div >
       <div style={{ width: '400px' }}>
         <Search foodsArr={foodsArr} setFoodsArr={setFoodsArr} />
       </div>
@@ -27,7 +27,7 @@ function App() {
         <AddFoodForm foodsArr={foodsArr} setFoodsArr={setFoodsArr} />
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
+      <div className="App" style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
         {foodList}
       </div>
     </div>

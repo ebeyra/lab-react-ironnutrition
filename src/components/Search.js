@@ -7,7 +7,7 @@ const Search = (props) => {
 
   let filteredFoods = (input) => {
     setNameParam(input);
-    let searchResults = foods.filter((foodItem) => {
+    let searchResults = props.foodsArr.filter((foodItem) => {
       return foodItem.name.includes(input);
     });
     props.setFoodsArr(searchResults);
